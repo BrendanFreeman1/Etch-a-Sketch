@@ -1,0 +1,152 @@
+/*===================
+         All
+===================*/
+@font-face {
+  font-family: Roboto;
+  src: url(../../Fonts/Roboto/Roboto-Regular.ttf);
+}
+
+body {
+  color:#F9FAF8;
+  background-color: #1F2937;
+  font-family: Roboto, normal;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/*===================
+     Nav banner
+===================*/
+.nav_bar {
+  height: 72px;
+  background-color: #141b25;
+  width: 100vmax;
+  position:fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*The links*/
+.nav_link {
+  display: block;
+  font-size: 18px;
+  padding: 20px;
+  color: #3882f6;
+}
+
+.nav_link:hover {
+  color: white;
+  background-color: #2e4352;
+  font-weight: bold;
+}
+
+/*===================
+      Title Bar
+===================*/
+.etch_title {
+  background-color: #505050;
+  padding: 24px;
+  padding-top: 96px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 10px 10px #1a1a1a;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 10px 5px 10px #1a1a1a;
+  margin: 0;
+}
+
+
+/*===================
+        Body
+===================*/
+.main {
+  display: flex;
+  margin: auto;
+}
+
+/*===================
+      Settings
+===================*/
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  margin: 30px 100px;
+  margin-left: 0;
+}
+
+.sizeText {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0px auto;
+}
+
+.sizeSlider{
+  height: 40px;
+}
+
+.colourPicker {
+  height: 40px;
+  width: auto;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #1a1a1a;
+}
+
+button {
+  color: white;
+  font-size: medium;
+  background-color: #1F2937;
+  border-style: solid;
+  border-color: White;
+  border-radius: 5px;
+  height: 40px;
+  margin: 20px 0;
+  box-shadow: 4px 4px 4px #1a1a1a;
+}
+
+.clearBtn:active,
+.resetBtn:active {
+  color: black;
+  background-color: white;
+  size-adjust: 2%;
+}
+
+/*===================
+     Sketch pad
+===================*/
+
+.gridContainer {
+   margin: auto; 
+   background-color: #ffffff;
+   box-shadow: 7px 7px 3px #1a1a1a;
+   
+}
+
+/*===================
+        Footer
+===================*/
+.footer {
+  height: 72px;
+  background-color: #505050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.nav_img {
+  width: 40px;
+  height: 40px;
+  padding: 0px 3px;
+}
+
