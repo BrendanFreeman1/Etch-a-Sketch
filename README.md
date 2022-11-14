@@ -22,18 +22,17 @@
 
 <h2>Goals and Outcome</h2>
 <ul>
- <li></li>
- <li></li>
- <li></li>
+ <li>A more elegant design and layout of elements</li>
+ <li>More complex manipulation of DOM elements</li>
+ <li>More complex control flow of data</li>
 </ul>
 
 <h2>What I learned</h2>
 <ul>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li> 
+ <li>Generating DOM elements with JavaScript</li>
+ <li>More complex uses of event listeners</li>
+ <li>A better understanding of architecting data flow through code</li>
+ <li>Utilising different HTML input types</li>
 </ul>
 
 <h2>Author</h2>
