@@ -1,5 +1,5 @@
 # Etch-A-Sketch
-<a href="https://brendanfreeman1.github.io/Rock_Paper_Scissors/"> Live Preview </a>
+<a href="https://brendanfreeman1.github.io/Etch-a-Sketch/"> Live Preview </a>
 <p>A Javascript Etch-a-Sketch</p>
 
 <p>This is my second web page created to practice Web development and design.</p>
