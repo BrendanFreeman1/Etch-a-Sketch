@@ -133,7 +133,7 @@ function RainbowBtnClick()
     rainbowArrIndex = 0;
   } else {
     rainbowMode = false;
-    //SetCurrentColour(colourPicker.value);
+    SetCurrentColour(colourPicker.value);
   }
 
 
