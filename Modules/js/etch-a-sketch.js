@@ -27,7 +27,7 @@ let rainbowArrIndex = 0;
 //Event Listeners
 gridContainer.addEventListener("mouseover", e => Draw(e, colour));
 sizeSlider.addEventListener("input", () => SetGridSize());
-colourPicker.addEventListener("input", () => SetCurrentColour(colourPicker.value, false));
+colourPicker.addEventListener("input", () => SetCurrentColour(colourPicker.value));
 clearBtn.addEventListener("click", () => ClearSketch());
 resetBtn.addEventListener("click", () => ResetPage());
 eraseBtn.addEventListener("click", () => EraseBtnClick());
@@ -50,16 +50,20 @@ function LoadDocument()
   document.body.onload = BuildGrid(DEFAULT_SIZE, false);
 }
 
-function BuildGrid(gridSize, rebuild) 
+function BuildGrid(gridSize, clearFirst) 
 {
-  if(rebuild){ gridContainer.textContent = ""; }
+  if(clearFirst){ gridContainer.textContent = ""; }
 
+  //Set box size based on users chosen grid size
   let boxSize = `${600 / gridSize}px`;
+
+  //Create 'gridSize' number of rows
   for (let i = 0; i < gridSize; i++) {
     let row = document.createElement("div");
     row.className = "row";
     row.style.height = boxSize;
 
+    //Create 'gridSize' number of boxes in each row
     for (let j = 0; j < gridSize; j++) {
       let box = document.createElement("div");
       SetBoxStyle(box, boxSize);
@@ -70,18 +74,19 @@ function BuildGrid(gridSize, rebuild)
   }
 }
 
-function Draw(e, colourToUse) 
+function Draw(e, currentColour) 
 {
   if (!mouseDown) return;
 
   let targetBox = e.target.closest(".box");
+
   if (!targetBox) return;
 
   if (rainbowMode) 
   { 
     SetBoxColour(targetBox, SetRainbowColour());
   } else { 
-    SetBoxColour(targetBox, colourToUse); 
+    SetBoxColour(targetBox, currentColour); 
   }
 }
 
@@ -95,7 +100,9 @@ function ClearSketch()
 function ResetPage()
 {
   rainbowMode = false;
+  eraseMode = false;
   SwitchButton(rainbowBtn, rainbowMode);
+  SwitchButton(eraseBtn, eraseMode);
   SetSizePicker(DEFAULT_SIZE);
   BuildGrid(DEFAULT_SIZE, true);
   colourPicker.value = DEFAULT_COLOUR;
@@ -107,13 +114,16 @@ function EraseBtnClick()
   if(!eraseMode)
   {
     eraseMode = true;
-    SetCurrentColour(ERASE_COLOUR, false);
+    SetCurrentColour(ERASE_COLOUR);
   } else {
     eraseMode = false;
-    SetCurrentColour(DEFAULT_COLOUR, false);
+    SetCurrentColour(colourPicker.value);
   }
-
   SwitchButton(eraseBtn, eraseMode);
+
+  //If the Rainbow btn is active, deactivate it
+  rainbowMode = false;
+  SwitchButton(rainbowBtn, rainbowMode);
 }
 
 function RainbowBtnClick()
@@ -124,8 +134,11 @@ function RainbowBtnClick()
   } else {
     rainbowMode = false;
   }
-
   SwitchButton(rainbowBtn, rainbowMode);
+
+  //If the Erase btn is active, deactivate it
+  eraseMode = false;
+  SwitchButton(eraseBtn, eraseMode);
 }
 
 function SwitchButton(button, toggleOn) 
@@ -141,15 +154,14 @@ function SwitchButton(button, toggleOn)
 
 
 
-function SetCurrentColour(newColour, isRainbowMode) 
+function SetCurrentColour(newColour) 
 {  
   colour = newColour;
-  rainbowMode = isRainbowMode;
 }
 
-function SetBoxColour(box, colourToUse) 
+function SetBoxColour(box, currentColour) 
 {
-  box.style.backgroundColor = colourToUse;
+  box.style.backgroundColor = currentColour;
 }
 
 function SetGridSize() 
