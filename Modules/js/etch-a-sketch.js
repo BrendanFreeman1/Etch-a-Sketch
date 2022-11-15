@@ -133,7 +133,10 @@ function RainbowBtnClick()
     rainbowArrIndex = 0;
   } else {
     rainbowMode = false;
+    //SetCurrentColour(colourPicker.value);
   }
+
+
   SwitchButton(rainbowBtn, rainbowMode);
 
   //If the Erase btn is active, deactivate it
